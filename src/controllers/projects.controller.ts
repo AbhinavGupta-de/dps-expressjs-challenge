@@ -22,7 +22,7 @@ export const createProjectWeb = async (req: Request, res: Response) => {
 export const getProject = async (req: Request, res: Response) => {
 	const { id } = req.params;
 	try {
-		const project = await getProjectById(Number(id));
+		const project = await getProjectById(id);
 		console.log(project);
 		if (project) {
 			res.status(200).json(project);
@@ -50,7 +50,7 @@ export const updateProjectWeb = async (req: Request, res: Response) => {
 	const { name, description } = req.body;
 	try {
 		const project = { name, description };
-		await updateProject(Number(id), project);
+		await updateProject(id, project);
 		res.status(200).json({ message: 'Project updated successfully' });
 	} catch (error) {
 		res.status(500).json({ message: 'Error updating project', error });
@@ -61,7 +61,7 @@ export const updateProjectWeb = async (req: Request, res: Response) => {
 export const deleteProjectWeb = async (req: Request, res: Response) => {
 	const { id } = req.params;
 	try {
-		await deleteProject(Number(id));
+		await deleteProject(id);
 		res.status(200).json({ message: 'Project deleted successfully' });
 	} catch (error) {
 		res.status(500).json({ message: 'Error deleting project', error });

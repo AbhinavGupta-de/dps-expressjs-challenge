@@ -26,7 +26,7 @@ const router = express.Router();
  *                 type: object
  *                 properties:
  *                   id:
- *                     type: integer
+ *                     type: string
  *                   name:
  *                     type: string
  *                   description:
@@ -74,7 +74,7 @@ router.post('/', createProjectWeb);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *           description: The ID of the project
  *     responses:
  *       200:
@@ -85,7 +85,7 @@ router.post('/', createProjectWeb);
  *               type: object
  *               properties:
  *                 id:
- *                   type: integer
+ *                   type: string
  *                 name:
  *                   type: string
  *                 description:
@@ -108,7 +108,7 @@ router.get('/:id', getProject);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *           description: The ID of the project to update
  *     requestBody:
  *       required: true
@@ -144,7 +144,7 @@ router.put('/:id', updateProjectWeb);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *           description: The ID of the project to delete
  *     responses:
  *       200:
