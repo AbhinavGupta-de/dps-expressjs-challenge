@@ -1,13 +1,17 @@
-import express, { Express } from 'express';
-import dotenv from 'dotenv';
+import express from 'express';
+import projectRoutes from './routes/projects.routes';
+import reportRoutes from './routes/reports.routes';
+import { swaggerSpec, swaggerUi } from './swagger';
 
-dotenv.config();
-
-const app: Express = express();
-const port = process.env.PORT || 3000;
-
+const app = express();
 app.use(express.json());
 
-app.listen(port, () => {
-	console.log(`[server]: Server is running at http://localhost:${port}`);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/projects', projectRoutes);
+app.use('/reports', reportRoutes);
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+	console.log(`[server]: Server is running at http://localhost:${PORT}`);
 });
