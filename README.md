@@ -1,42 +1,108 @@
 # DPS Backend Coding Challenge
 
-## Overview
+This project provides a RESTful API for managing **projects** and **reports**. It allows users to perform CRUD operations on projects and associated reports, and includes special functionality to retrieve reports based on a specific word appearing multiple times in the content. This was built as part of the backend coding challenge for the [DPS](https://www.digitalproductschool.io) recruitment process.
 
-This repository contains a very basic web application based on Typescript and Express.js. Main application file is `index.ts`. Node and npm are required.
+## Table of Contents
 
-## Environment Setup
+- [DPS Backend Coding Challenge](#dps-backend-coding-challenge)
+  - [Table of Contents](#table-of-contents)
+  - [Technologies Used](#technologies-used)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Step 1: Clone the repository](#step-1-clone-the-repository)
+    - [Step 2: Install dependencies](#step-2-install-dependencies)
+    - [Step 3: Run the development server](#step-3-run-the-development-server)
+  - [API Endpoints](#api-endpoints)
+    - [Project Endpoints](#project-endpoints)
+    - [Report Endpoints](#report-endpoints)
+  - [Authentication](#authentication)
+  - [Swagger Documentation](#swagger-documentation)
+  - [Testing](#testing)
+  - [License](#license)
 
-Ensure you have Node.js (v14.x or later) and npm (v6.x or later) installed.  
-To set up and run the application, execute the following commands:
+## Technologies Used
 
+-   **Node.js**: JavaScript runtime for building the backend.
+-   **Express.js**: Web framework for creating the API.
+-   **SQLite**: Database for storing project and report data.
+-   **Swagger UI**: For API documentation and testing.
+-   **TypeScript**: For type safety and enhanced development experience.
+
+## Installation
+
+Follow the steps below to install and run the application locally.
+
+### Prerequisites
+
+Ensure that you have **Node.js** (v14.x or later) and **npm** (v6.x or later) installed on your machine.
+
+### Step 1: Clone the repository
+
+```bash
+git clone <your-repository-url>
+cd <your-project-directory>
 ```
+
+### Step 2: Install dependencies
+
+```bash
 npm install
+```
+
+### Step 3: Run the development server
+
+```bash
 npm run dev
 ```
 
-The application will then be accessible at http://localhost:3000.
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
-## Project Context
+## API Endpoints
 
-You will develop a backend system for managing data about a company's projects and their associated reports. Each project may have multiple reports linked to it, though having reports is not mandatory. Start your implementation using the provided SQLite database([db/db.sqlite3](./db/db.sqlite3)).
+### Project Endpoints
 
-Refer to the database schema provided for understanding the data structure 👇
+-   **GET /api/projects**: Get all projects
+-   **GET /api/projects/:id**: Get project by ID
+-   **POST /api/projects**: Create a new project
+-   **PUT /api/projects/:id**: Update an existing project
+-   **DELETE /api/projects/:id**: Delete a project
 
-![Database schema](images/database_schema.png)
+### Report Endpoints
 
-NOTE: You can use ([db.service.ts](./src/services/db.service.ts)) to handle SQL queries to the database.
+-   **GET /api/reports/project/:projectId**: Get all reports for a specific project
+-   **GET /api/reports/:id**: Get a report by ID
+-   **POST /api/reports**: Create a new report
+-   **PUT /api/reports/:id**: Update an existing report
+-   **DELETE /api/reports/:id**: Delete a report
+-   **GET /api/reports/word/:word**: Get reports where a specific word appears at least 3 times in the content
 
-## Challenge Tasks
+## Authentication
 
--   **Fork this project:** Start by forking this repository
--   **REST API Development:** Design and implement a RESTful API to create, read, update, and delete projects and their reports.
--   **Special API Endpoint:** Create an API endpoint that retrieves all reports where the same word appears at least three times.
--   **Optional:** Secure all API routes with a hardcoded authentication token ("Password123").
--   **Submission:** After completing the challenge, email us the URL of your GitHub repository.
--   **Further information:**
-    -   If there is anything unclear regarding requirements, contact us by replying to our email.
-    -   Use small commits, we want to see your progress towards the solution.
-    -   Code clean and follow the best practices.
+This API uses a simple **password-based authentication**. To interact with the API, you must include an `Authorization` header with the following format:
 
-\
-Happy coding!
+```
+Authorization: Bearer Password123
+```
+
+You can test the endpoints using Swagger UI, which provides an easy way to pass the token.
+
+## Swagger Documentation
+
+API documentation is available via Swagger UI. To view and interact with the API documentation:
+
+1. Start the server by running `npm run dev`.
+2. Open [http://localhost:3000/api-docs](http://localhost:3000/api-docs) in your browser.
+3. Use the **Authorize** button to enter `Bearer Password123` as the authentication token.
+4. Explore and test the API endpoints directly from the documentation.
+
+## Testing
+
+To run tests, use the following command:
+
+```bash
+npm test
+```
+
+## License
+
+This project is licensed under the MIT License.
