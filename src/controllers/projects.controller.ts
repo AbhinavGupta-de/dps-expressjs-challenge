@@ -23,7 +23,6 @@ export const getProject = async (req: Request, res: Response) => {
 	const { id } = req.params;
 	try {
 		const project = await getProjectById(id);
-		console.log(project);
 		if (project) {
 			res.status(200).json(project);
 		} else {

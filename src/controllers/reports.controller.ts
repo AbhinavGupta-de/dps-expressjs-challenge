@@ -24,7 +24,7 @@ export const createReportWeb = async (req: Request, res: Response) => {
 export const getReportsForProjectWeb = async (req: Request, res: Response) => {
 	const { projectId } = req.params;
 	try {
-		const reports = await getReportsForProject(Number(projectId));
+		const reports = await getReportsForProject(projectId);
 		res.status(200).json(reports);
 	} catch (error) {
 		res.status(500).json({
@@ -38,7 +38,7 @@ export const getReportsForProjectWeb = async (req: Request, res: Response) => {
 export const getReportByIdWeb = async (req: Request, res: Response) => {
 	const { id } = req.params;
 	try {
-		const report = await getReportById(Number(id));
+		const report = await getReportById(id);
 		if (report) {
 			res.status(200).json(report);
 		} else {
@@ -55,7 +55,7 @@ export const updateReportWeb = async (req: Request, res: Response) => {
 	const { project_id, content } = req.body;
 	try {
 		const report = { project_id, content };
-		await updateReport(Number(id), report);
+		await updateReport(id, report);
 		res.status(200).json({ message: 'Report updated successfully' });
 	} catch (error) {
 		res.status(500).json({ message: 'Error updating report', error });
@@ -66,7 +66,7 @@ export const updateReportWeb = async (req: Request, res: Response) => {
 export const deleteReportWeb = async (req: Request, res: Response) => {
 	const { id } = req.params;
 	try {
-		await deleteReport(Number(id));
+		await deleteReport(id);
 		res.status(200).json({ message: 'Report deleted successfully' });
 	} catch (error) {
 		res.status(500).json({ message: 'Error deleting report', error });

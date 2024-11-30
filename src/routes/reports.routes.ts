@@ -24,7 +24,7 @@ const router = express.Router();
  *             type: object
  *             properties:
  *               project_id:
- *                 type: integer
+ *                 type: string
  *               content:
  *                 type: string
  *     responses:
@@ -48,7 +48,7 @@ router.post('/', createReportWeb);
  *         name: projectId
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *           description: The ID of the project
  *     responses:
  *       200:
@@ -61,9 +61,9 @@ router.post('/', createReportWeb);
  *                 type: object
  *                 properties:
  *                   id:
- *                     type: integer
+ *                     type: string
  *                   project_id:
- *                     type: integer
+ *                     type: string
  *                   content:
  *                     type: string
  *       404:
@@ -84,7 +84,7 @@ router.get('/project/:projectId', getReportsForProjectWeb);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *           description: The ID of the report
  *     responses:
  *       200:
@@ -95,9 +95,9 @@ router.get('/project/:projectId', getReportsForProjectWeb);
  *               type: object
  *               properties:
  *                 id:
- *                   type: integer
+ *                   type: string
  *                 project_id:
- *                   type: integer
+ *                   type: string
  *                 content:
  *                   type: string
  *       404:
@@ -118,7 +118,7 @@ router.get('/:id', getReportByIdWeb);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *           description: The ID of the report to update
  *     requestBody:
  *       required: true
@@ -128,7 +128,7 @@ router.get('/:id', getReportByIdWeb);
  *             type: object
  *             properties:
  *               project_id:
- *                 type: integer
+ *                 type: string
  *               content:
  *                 type: string
  *     responses:
@@ -154,7 +154,7 @@ router.put('/:id', updateReportWeb);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *           description: The ID of the report to delete
  *     responses:
  *       200:
@@ -190,9 +190,9 @@ router.delete('/:id', deleteReportWeb);
  *                 type: object
  *                 properties:
  *                   id:
- *                     type: integer
+ *                     type: string
  *                   project_id:
- *                     type: integer
+ *                     type: string
  *                   content:
  *                     type: string
  *       404:
