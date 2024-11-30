@@ -14,11 +14,26 @@ const options = {
 				url: 'http://localhost:3000',
 			},
 		],
+		components: {
+			securitySchemes: {
+				BearerAuth: {
+					type: 'apiKey',
+					in: 'header',
+					name: 'Authorization',
+					description:
+						'Enter the password token as `Bearer Password123`',
+				},
+			},
+		},
+		security: [
+			{
+				BearerAuth: [],
+			},
+		],
 	},
 	apis: ['./src/routes/*.ts'],
 };
 
-// Create Swagger specification
 const swaggerSpec = swaggerJSDoc(options);
 
 export { swaggerSpec, swaggerUi };

@@ -7,8 +7,11 @@ import {
 	deleteReportWeb,
 	getReportsWithWordWeb,
 } from '../controllers/reports.controller';
+import { authenticate } from '../middlewares/auth.middleware';
 
 const router = express.Router();
+
+router.use(authenticate);
 
 /**
  * @swagger

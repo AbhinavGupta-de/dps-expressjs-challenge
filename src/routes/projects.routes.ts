@@ -6,8 +6,11 @@ import {
 	deleteProjectWeb,
 	getAllProjectsWeb,
 } from '../controllers/projects.controller';
+import { authenticate } from '../middlewares/auth.middleware';
 
 const router = express.Router();
+
+router.use(authenticate);
 
 /**
  * @swagger
