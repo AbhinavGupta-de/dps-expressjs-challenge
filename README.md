@@ -4,21 +4,20 @@ This project provides a RESTful API for managing **projects** and **reports**. I
 
 ## Table of Contents
 
-- [DPS Backend Coding Challenge](#dps-backend-coding-challenge)
-  - [Table of Contents](#table-of-contents)
-  - [Technologies Used](#technologies-used)
-  - [Installation](#installation)
-    - [Prerequisites](#prerequisites)
-    - [Step 1: Clone the repository](#step-1-clone-the-repository)
-    - [Step 2: Install dependencies](#step-2-install-dependencies)
-    - [Step 3: Run the development server](#step-3-run-the-development-server)
-  - [API Endpoints](#api-endpoints)
-    - [Project Endpoints](#project-endpoints)
-    - [Report Endpoints](#report-endpoints)
-  - [Authentication](#authentication)
-  - [Swagger Documentation](#swagger-documentation)
-  - [Testing](#testing)
-  - [License](#license)
+-   [DPS Backend Coding Challenge](#dps-backend-coding-challenge)
+    -   [Table of Contents](#table-of-contents)
+    -   [Technologies Used](#technologies-used)
+    -   [Installation](#installation)
+        -   [Prerequisites](#prerequisites)
+        -   [Step 1: Clone the repository](#step-1-clone-the-repository)
+        -   [Step 2: Install dependencies](#step-2-install-dependencies)
+        -   [Step 3: Run the development server](#step-3-run-the-development-server)
+    -   [API Endpoints](#api-endpoints)
+        -   [Project Endpoints](#project-endpoints)
+        -   [Report Endpoints](#report-endpoints)
+    -   [Authentication](#authentication)
+    -   [Swagger Documentation](#swagger-documentation)
+    -   [License](#license)
 
 ## Technologies Used
 
@@ -94,14 +93,6 @@ API documentation is available via Swagger UI. To view and interact with the API
 2. Open [http://localhost:3000/api-docs](http://localhost:3000/api-docs) in your browser.
 3. Use the **Authorize** button to enter `Bearer Password123` as the authentication token.
 4. Explore and test the API endpoints directly from the documentation.
-
-## Testing
-
-To run tests, use the following command:
-
-```bash
-npm test
-```
 
 ## License
 
