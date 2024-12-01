@@ -8,6 +8,14 @@ import {
 	getReportsWithWordWeb,
 } from '../controllers/reports.controller';
 import { authenticate } from '../middlewares/auth.middleware';
+import {
+	validateCreateReport,
+	validateDeleteReport,
+	validateGetReportById,
+	validateGetReportsForProject,
+	validateGetReportsWithWord,
+	validateUpdateReport,
+} from '../validators/reports.validator';
 
 const router = express.Router();
 
@@ -38,7 +46,7 @@ router.use(authenticate);
  *       500:
  *         description: Internal server error
  */
-router.post('/', createReportWeb);
+router.post('/', validateCreateReport, createReportWeb);
 
 /**
  * @swagger
@@ -74,7 +82,11 @@ router.post('/', createReportWeb);
  *       500:
  *         description: Internal server error
  */
-router.get('/project/:projectId', getReportsForProjectWeb);
+router.get(
+	'/project/:projectId',
+	validateGetReportsForProject,
+	getReportsForProjectWeb,
+);
 
 /**
  * @swagger
@@ -108,7 +120,7 @@ router.get('/project/:projectId', getReportsForProjectWeb);
  *       500:
  *         description: Internal server error
  */
-router.get('/:id', getReportByIdWeb);
+router.get('/:id', validateGetReportById, getReportByIdWeb);
 
 /**
  * @swagger
@@ -144,7 +156,7 @@ router.get('/:id', getReportByIdWeb);
  *       500:
  *         description: Internal server error
  */
-router.put('/:id', updateReportWeb);
+router.put('/:id', validateUpdateReport, updateReportWeb);
 
 /**
  * @swagger
@@ -167,7 +179,7 @@ router.put('/:id', updateReportWeb);
  *       500:
  *         description: Internal server error
  */
-router.delete('/:id', deleteReportWeb);
+router.delete('/:id', validateDeleteReport, deleteReportWeb);
 
 /**
  * @swagger
@@ -203,6 +215,6 @@ router.delete('/:id', deleteReportWeb);
  *       500:
  *         description: Internal server error
  */
-router.get('/word/:word', getReportsWithWordWeb);
+router.get('/word/:word', validateGetReportsWithWord, getReportsWithWordWeb);
 
 export default router;

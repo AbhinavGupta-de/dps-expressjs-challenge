@@ -7,6 +7,10 @@ import {
 	getAllProjectsWeb,
 } from '../controllers/projects.controller';
 import { authenticate } from '../middlewares/auth.middleware';
+import {
+	validateCreateProject,
+	validateUpdateProject,
+} from '../validators/projects.validator';
 
 const router = express.Router();
 
@@ -64,7 +68,7 @@ router.get('/', getAllProjectsWeb);
  *       500:
  *         description: Internal server error
  */
-router.post('/', createProjectWeb);
+router.post('/', validateCreateProject, createProjectWeb);
 
 /**
  * @swagger
@@ -134,7 +138,7 @@ router.get('/:id', getProject);
  *       500:
  *         description: Internal server error
  */
-router.put('/:id', updateProjectWeb);
+router.put('/:id', validateUpdateProject, updateProjectWeb);
 
 /**
  * @swagger
