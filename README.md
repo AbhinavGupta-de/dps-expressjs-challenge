@@ -60,20 +60,20 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 ### Project Endpoints
 
--   **GET /api/projects**: Get all projects
--   **GET /api/projects/:id**: Get project by ID
--   **POST /api/projects**: Create a new project
--   **PUT /api/projects/:id**: Update an existing project
--   **DELETE /api/projects/:id**: Delete a project
+-   **GET /projects**: Get all projects
+-   **GET /projects/:id**: Get project by ID
+-   **POST /projects**: Create a new project
+-   **PUT /projects/:id**: Update an existing project
+-   **DELETE /projects/:id**: Delete a project
 
 ### Report Endpoints
 
--   **GET /api/reports/project/:projectId**: Get all reports for a specific project
--   **GET /api/reports/:id**: Get a report by ID
--   **POST /api/reports**: Create a new report
--   **PUT /api/reports/:id**: Update an existing report
--   **DELETE /api/reports/:id**: Delete a report
--   **GET /api/reports/word/:word**: Get reports where a specific word appears at least 3 times in the content
+-   **GET /reports/project/:projectId**: Get all reports for a specific project
+-   **GET /reports/:id**: Get a report by ID
+-   **POST /reports**: Create a new report
+-   **PUT /reports/:id**: Update an existing report
+-   **DELETE /reports/:id**: Delete a report
+-   **GET /reports/word/:word**: Get reports where a specific word appears at least 3 times in the content
 
 ## Authentication
 
